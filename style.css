@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #A3CB38;
+    color: rgb(235, 235, 235);
+}
+
+.nav-bar {
+    display: flex;
+    
+}
+
+.nav-bar div {
+    margin-left: 100px;
+    cursor: pointer;
+    letter-spacing: 3px;
+}
+
+.logo {
+    width: 30%;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
