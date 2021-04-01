@@ -4,32 +4,24 @@ const searchedPlayerInfo = document.getElementById("searchedPlayerInfo");
 const playerInfo = document.getElementById("playerInfo");
 const landingPage = document.getElementById("landingPage");
 
-fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4328`)
-.then((response) => response.json())
-.then((data) => {
-    console.log(data);
+//LANDING PAGE
 
-    printLeaugeInfo(data)
-});
+const getLandingPage = async () => {
+    const response = await fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4328`)
+    const leagueInfo = response.json()
 
-// function printLeaugeInfo(info) {
-//     for(data in info) {
-//         console.log(info.leagues[0].dateFirstEvent);
+    console.log(leagueInfo);
 
-//         landingPage.insertAdjacentHTML("afterbegin", `<p class="landing-info">${info.leagues[0].strDescriptionEN}`)
-//     }
-// }
+}
 
-
-
-
+getLandingPage();
 
 
 //PLAYERS PAGE
 
 playerBtn.addEventListener("click", function(){
     playersBox.innerHTML = "";
-    playersBox.insertAdjacentHTML("afterbegin", `<input id="searchedPlayerInfo" type="text"><button id="searchForPlayerBtn">Search</button>`)
+    playersBox.insertAdjacentHTML("afterbegin", `<input id="searchedPlayerInfo" placeholder="Type in player name" type="text"><button id="searchForPlayerBtn">Search</button>`)
     
 });
 
@@ -60,8 +52,8 @@ const renderHTML = (template, element) => {
 
 const createPlayerTemplateAndRenderHTML = (player) => {
     console.log("spelare", player);
-    const {strPlayer, dateBorn} = player
-    const HTML = `<h2>${strPlayer}</h2> <p>${dateBorn}</p>`
+    const {strPlayer, dateBorn, strBirthLocation, strThumb, strTeam, strPosition, strHeight, strWeight, strWage} = player
+    const HTML = `<h2>${strPlayer}</h2> <img class="player-img" src="${strThumb}"> <p><h4>Born in:</h4> ${dateBorn}, ${strBirthLocation}.</p> <p><h4>Current team:</h4> ${strTeam}</p> <p><h4>Position:</h4> ${strPosition}</p> <p><h4>Height:</h4> ${strHeight}</p> <p><h4>Weight:</h4> ${strWeight}</p> <p><h4>Wage:</h4> ${strWage}</p>`
     renderHTML(HTML, playerInfo)
 }
 

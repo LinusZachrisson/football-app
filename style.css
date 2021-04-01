@@ -34,8 +34,43 @@ header {
     font-weight: bold;
 }
 
+#leaugeBtn:hover {
+    color: rgb(48, 48, 48);
+}
+
+#playerBtn:hover {
+    color: rgb(48, 48, 48);
+}
+
+#teamBtn:hover {
+    color: rgb(48, 48, 48);
+}
+
 .landing-info {
     text-align: center;
     font-size: 0.8rem;
     width: 70%;
+}
+
+.player-img {
+    width: 20%;
+    height: 50%;
+}
+
+.players-container {
+    margin-left: 20px;
+}
+
+#playerInfo h4 {
+    font-weight: bold;
+    display: inline-block;
+}
+
+#searchedPlayerInfo {
+    height: 25px;
+}
+
+#searchForPlayerBtn {
+    margin-top: 10px;
+    height: 25px;
 }
