@@ -12,7 +12,7 @@ header {
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    background-color: #A3CB38;
+    background-color: #40739e;
     color: rgb(235, 235, 235);
 }
 
@@ -31,4 +31,11 @@ header {
     width: 30%;
     font-size: 1.2rem;
     letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.landing-info {
+    text-align: center;
+    font-size: 0.8rem;
+    width: 70%;
 }
