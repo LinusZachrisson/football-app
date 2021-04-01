@@ -6,15 +6,32 @@ const landingPage = document.getElementById("landingPage");
 
 //LANDING PAGE
 
-const getLandingPage = async () => {
-    const response = await fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4328`)
-    const leagueInfo = response.json()
+fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4328`)
+.then((response) => response.json())
+.then((data)=> {
 
-    console.log(leagueInfo);
+    console.log(data);
 
+    createLandingPageTemplate(data)
+});
+
+const createLandingPageTemplate = (league) => {
+    console.log(league.leagues[0].strDescriptionEN);
+
+    const landingHTML = `<h1>Welcome to Premier league heaven!</h1> <h3>This will now be your main source for premier league information</h3> <p>${league.leagues[0].strDescriptionEN}</p> <img class="pl-img" src="./img/small-pl-logo.png">`
+
+    renderHTML(landingHTML, landingPage)
 }
 
-getLandingPage();
+
+
+// const getLandingPage = async () => {
+//     const response = await fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=4328`)
+//     const leagueInfo = response.json()
+
+//     console.log(leagueInfo);
+// }
+
 
 
 //PLAYERS PAGE
@@ -23,6 +40,7 @@ playerBtn.addEventListener("click", function(){
     playersBox.innerHTML = "";
     playersBox.insertAdjacentHTML("afterbegin", `<input id="searchedPlayerInfo" placeholder="Type in player name" type="text"><button id="searchForPlayerBtn">Search</button>`)
     
+    landingPage.innerHTML= "";
 });
 
 

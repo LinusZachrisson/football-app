@@ -46,10 +46,15 @@ header {
     color: rgb(48, 48, 48);
 }
 
-.landing-info {
+.landing-container {
     text-align: center;
     font-size: 0.8rem;
     width: 70%;
+    margin: auto;
+}
+
+.pl-img {
+    width: 150px;
 }
 
 .player-img {
